@@ -1,0 +1,17 @@
+name: GitHub Action Cours 7
+description: Exercice 7
+runs:
+  using: 'composite'
+  steps:
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+      shell: bash
+    - name: Go to tests directory
+      run: cd src
+      shell: bash
+    - name: Run tests
+      run: python -m unittest
+      shell: bash
+    - name: Generate HTML coverage report
+      run: python3 -m pytest --cov --cov-report=html:../test-cov
+      shell: bash
